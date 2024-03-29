@@ -1,6 +1,6 @@
 cherry-pickは、rebaseとコミットの分岐元を変えるという意味では似ていると思ったので、rebaseディレクトリ内に記載。
 
-```cherry-pick```は、特定のコミットだけを現在いるコミットにに追加することができる。
+```cherry-pick```は、特定のコミットだけを現在いるコミットに追加することができる。
 現在、masterブランチのコミットFにいるとする。
 
 <img width="374" alt="スクリーンショット 2024-03-29 16 42 56" src="https://github.com/Ryo-0912/Git/assets/82032550/f56bcefc-bf86-4da6-b254-e1b131bbdeb4">
