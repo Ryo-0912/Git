@@ -12,7 +12,7 @@ cherry-pickは、rebaseとコミットの分岐元を変えるという意味で
 
 
 
-もし、複数のブランチを一括で追加したい場合は次のようなコマンド実行。
+もし、複数のコミットを一括で追加したい場合は次のようなコマンド実行。
 ```git cherry-pick D E J```
 
 <img width="538" alt="スクリーンショット 2024-03-29 16 43 18" src="https://github.com/Ryo-0912/Git/assets/82032550/ed5d572e-9ae0-49d5-9c4b-fa482f4c9692">
