@@ -419,3 +419,53 @@ first.html,second.html.third.htmlを追加
 |   
 :
 ```
+
+最後に、```git rebase --continue```を実行。
+
+再度、現状を確認。
+
+```
+% git log --graph
+* commit 39e958da8445025db53e4b746dab58bf467c5e63 (HEAD -> first)
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:15:47 2024 +0900
+| 
+|     first.html,second.html.third.htmlを追加
+|   
+*   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
+|\  Merge: e62112f 9d1d18f
+| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Date:   Thu Apr 4 17:42:57 2024 +0900
+| | 
+| |     Merge pull request #156 from skrum-inc/fix_sub_photo
+| | 
+| * commit 9d1d18fd7a78efa32473e11220f032c51610137c (origin/fix_sub_photo)
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:23:38 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit 630d6408d9650ff6d22eb698e38d5929adf9b3d6
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:11:12 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit e03eecf18a93666a0797abf05d4e0a2e928ad42d
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:02:51 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit f5eba22610d376bdcc450f6e5c0297632c35604b
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 17:57:13 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit f1b64097b626008184db1c9d0c8f9b71ab623446
+|/  Author: Ryo Ando <ryo.ando@skrum.co.jp>
+|   Date:   Wed Apr 3 16:59:42 2024 +0900
+|   
+:
+```
