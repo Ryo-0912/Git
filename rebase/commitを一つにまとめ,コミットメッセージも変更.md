@@ -22,7 +22,7 @@
 |   
 *   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
 |\  Merge: e62112f 9d1d18f
-| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Author: test-user <test.user@skrum.co.jp>
 | | Date:   Thu Apr 4 17:42:57 2024 +0900
 ```
 
@@ -182,7 +182,7 @@ third.html追加
 |   
 *   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
 |\  Merge: e62112f 9d1d18f
-| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Author: test-user <test.user@skrum.co.jp>
 | | Date:   Thu Apr 4 17:42:57 2024 +0900
 | | 
 | |     Merge pull request #156 from skrum-inc/fix_sub_photo
@@ -384,7 +384,7 @@ first.html,second.html.third.htmlを追加
 |   
 *   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
 |\  Merge: e62112f 9d1d18f
-| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Author: test-user <test.user@skrum.co.jp>
 | | Date:   Thu Apr 4 17:42:57 2024 +0900
 | | 
 | |     Merge pull request #156 from skrum-inc/fix_sub_photo
@@ -434,7 +434,7 @@ first.html,second.html.third.htmlを追加
 |   
 *   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
 |\  Merge: e62112f 9d1d18f
-| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Author: test-user <test.user@skrum.co.jp>
 | | Date:   Thu Apr 4 17:42:57 2024 +0900
 | | 
 | |     Merge pull request #156 from skrum-inc/fix_sub_photo
