@@ -163,7 +163,7 @@ third.html追加
 #       user.html
 #
 ~                                                                                             
-"~/bridge-backend/.git/COMMIT_EDITMSG" 40L, 1002B
+"~/sample/.git/COMMIT_EDITMSG" 40L, 1002B
 ```
 
 現状を確認する。
@@ -262,7 +262,7 @@ pick 8674350 first.html追加
 ~                                                                                             
 ~                                                                                             
 ~                                                                                             
-"~/bridge-backend/.git/rebase-merge/git-rebase-todo" 32L, 1510B
+"~/sample/.git/rebase-merge/git-rebase-todo" 32L, 1510B
 ```
 
 エディターを閉じると、次のような出力がされるので、```git commit --amend```を実行。
@@ -323,7 +323,7 @@ third.html追加
 ~                                                                                             
 ~                                                                                             
 ~                                                                                             
-"~/bridge-backend/.git/COMMIT_EDITMSG" 32L, 842B
+"~/sample/.git/COMMIT_EDITMSG" 32L, 842B
 ```
 
 ここで、始めてコミットメッセージを変更する。
