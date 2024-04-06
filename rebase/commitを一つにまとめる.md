@@ -14,7 +14,7 @@ XXX-web % git log --graph
 | 
 |     fix requests of webhook
 |   
-*   commit **5f3bc156a6c15c58084a05d329b6039719b90b1b**
+*   commit 5f3bc156a6c15c58084a05d329b6039719b90b1b (⭐️)
 |\  Merge: e059e760 b519765f
 | | Author: BBBBB <BBB.BBBB@BBBB.co.jp>
 | | Date:   Wed Sep 27 16:00:11 2023 +0900
@@ -41,7 +41,7 @@ XXX-web % git log --graph
 このような時は、以下のコマンドを実行。
 
 ```
-XXX-web % git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b
+XXX-web % git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b(⭐️)
 [detached HEAD ad266f65] fix requests of webhook
  Date: Thu Sep 28 15:57:30 2023 +0900
  12 files changed, 27 insertions(+), 24 deletions(-)
