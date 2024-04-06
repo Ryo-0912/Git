@@ -41,7 +41,7 @@ XXX-web % git log --graph
 このような時は、以下のコマンドを実行。
 
 ```
-XXX-web % **git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b**
+XXX-web % git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b
 [detached HEAD ad266f65] fix requests of webhook
  Date: Thu Sep 28 15:57:30 2023 +0900
  12 files changed, 27 insertions(+), 24 deletions(-)
