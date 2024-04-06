@@ -48,9 +48,9 @@ XXX-web % git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b(⭐️)
 Successfully rebased and updated refs/heads/fix_requests_of_webhook.
 ```
 
-この後、出てくるエディターでfix_fixの箇所をpickup→sに変更し、保存。
+この後、出てくるエディターでfix_fixの箇所をpickup→s(squash)に変更し、保存。
 
-そして、commitメッセージをfix requests of webhook rebasedに変更。
+そして、commitメッセージを***fix requests of webhook rebased***に変更。
 
 すると、次のようになる。
 
@@ -111,20 +111,4 @@ XXX-web % git log --graph
 | * commit bb2cefac52e0bcef5784519ac195bbeb691c9c68
 | | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
 | | Date:   Wed Sep 27 15:40:29 2023 +0900
-| | 
-| |     Change the destination of each button
-| | 
-* | commit e059e760df049f8ab52dd44d1792b2b6e8c1293c
-| | Author: CCCCC <CCC.CCCC@CCCC.co.jp>
-| | Date:   Wed Sep 27 15:35:17 2023 +0900
-| | 
-| |     Feature/pic 89 my page edit hamasaki (#97)
-| |     
-| |     * implement mypage edit
-| |     
-| |     * fix by review 20230831-14:09
-| |     
-| |     * fix by review 20230901 13:46
-| |     
-| |     * fix by ewview
 ```
