@@ -1,114 +1,421 @@
-以下のgit graphから見てわかるように、現在fix_requests_of_webhookブランチで作業中。
+以下のgit graphから見てわかるように、現在firstブランチで作業中。
 
 ```
-XXX-web % git log --graph                     
-* commit 61425702bccca8654308e92a2231e0a389cca74d (HEAD -> fix_requests_of_webhook)
-| Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| Date:   Thu Sep 28 16:50:45 2023 +0900
+% git log --graph
+* commit f98a5611195160b1ce279db95c0c645ed9696091 (HEAD -> first)
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:16:47 2024 +0900
 | 
-|     fix_fix
+|     third.html追加
 | 
-* commit cb938a66c3af15226414f067dece9a7648d610af
-| Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| Date:   Thu Sep 28 15:57:30 2023 +0900
+* commit 0afe77c00fc5e2c409435c8b22d909104467937e
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:16:23 2024 +0900
 | 
-|     fix requests of webhook
+|     second.html追加
+| 
+* commit d96c40e631768b69883140f9ff6a9e12f7374cde
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:15:47 2024 +0900
+| 
+|     first.html追加
 |   
-*   commit 5f3bc156a6c15c58084a05d329b6039719b90b1b (⭐️)
-|\  Merge: e059e760 b519765f
-| | Author: BBBBB <BBB.BBBB@BBBB.co.jp>
-| | Date:   Wed Sep 27 16:00:11 2023 +0900
+*   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
+|\  Merge: e62112f 9d1d18f
+| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Date:   Thu Apr 4 17:42:57 2024 +0900
+```
+
+このブランチ内でcommitした3つのcommitを一つのcommitにすることを考える。
+
+ブランチを切った箇所から3つのcommitをしているので、以下のコマンドを実行。
+
+```
+% git rebase -i HEAD~3
+```
+
+すると、次のようなエディターが開く。
+
+```
+pick d96c40e first.html追加
+pick 0afe77c second.html追加
+pick f98a561 third.html追加
+
+# Rebase 5b15e79..f98a561 onto 5b15e79 (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+```
+
+一つにまとめたいので、次のように編集し、保存。
+
+```
+pick d96c40e first.html追加
+squash 0afe77c second.html追加
+squash f98a561 third.html追加
+
+# Rebase 5b15e79..f98a561 onto 5b15e79 (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+```
+
+すると、すぐに、次のようなエディターが開くが、特に何もせず、終了。
+
+```
+# This is a combination of 3 commits.
+# This is the 1st commit message:
+
+first.html追加
+
+# This is the commit message #2:
+
+second.html追加
+
+# This is the commit message #3:
+
+third.html追加
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Apr 6 17:15:47 2024 +0900
+#
+# interactive rebase in progress; onto 5b15e79
+# Last commands done (3 commands done):
+#    squash 0afe77c second.html追加
+#    squash f98a561 third.html追加
+# No commands remaining.
+# You are currently rebasing branch 'first' on '5b15e79'.
+#
+# Changes to be committed:
+#       new file:   first.html
+#       new file:   second.html
+#       new file:   third.html
+#
+# Untracked files:
+#       .DS_Store
+#       .history/
+#       app/Http/Requests/Api/MatchingGoodRequest.php
+#       app/Http/UseCases/SendGoodMessageUseCase.php
+#       app/Http/UseCases/SendGoodUseCase.php
+#       app/Repositories/InspectMessageGood/
+#       storage/bridge-d540d-c8e276592470.json
+#       user.html
+#
+~                                                                                             
+"~/bridge-backend/.git/COMMIT_EDITMSG" 40L, 1002B
+```
+
+現状を確認する。
+
+```
+% git log --graph
+* commit 86743506e9421aeaf49b430f2fda66d4ba278a48 (HEAD -> first)
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:15:47 2024 +0900
+| 
+|     first.html追加
+|     
+|     second.html追加
+|     
+|     third.html追加
+|   
+*   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
+|\  Merge: e62112f 9d1d18f
+| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Date:   Thu Apr 4 17:42:57 2024 +0900
 | | 
-| |     Merge pull request #98 from skrum-inc/PIC-131-fix-fb-sheet-no-9
-| |     
-| |     Change the destination of each button
+| |     Merge pull request #156 from skrum-inc/fix_sub_photo
 | | 
-| * commit b519765fb30333a4728d1b3700cae75d90495264 (origin/PIC-131-fix-fb-sheet-no-9, PIC-131-fix-fb-sheet-no-9)
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:42:36 2023 +0900
+| * commit 9d1d18fd7a78efa32473e11220f032c51610137c (origin/fix_sub_photo)
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:23:38 2024 +0900
 | | 
 | |     fix
 | | 
-| * commit bb2cefac52e0bcef5784519ac195bbeb691c9c68
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:40:29 2023 +0900
-```
-
-このブランチでcommitしたfix_fixとfix requests of webhookというコミットを一つにすることを考える。
-
-ただし、fix_requests_of_webhookのチェックアウト元である**5f3bc156a6c15c58084a05d329b6039719b90b1b**コミットは変えてはいけない。
-
-このような時は、以下のコマンドを実行。
-
-```
-XXX-web % git rebase -i 5f3bc156a6c15c58084a05d329b6039719b90b1b(⭐️)
-[detached HEAD ad266f65] fix requests of webhook
- Date: Thu Sep 28 15:57:30 2023 +0900
- 12 files changed, 27 insertions(+), 24 deletions(-)
-Successfully rebased and updated refs/heads/fix_requests_of_webhook.
-```
-
-この後、出てくるエディターでfix_fixの箇所をpickup→s(squash)に変更し、保存。
-
-そして、commitメッセージを***fix requests of webhook rebased***に変更。
-
-すると、次のようになる。
-
-```
-XXX-web % git log --graph
-* commit ad266f655613aa11e8e9b61a4659b40895c48c0d (HEAD -> fix_requests_of_webhook)
-| Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| Date:   Thu Sep 28 15:57:30 2023 +0900
-| 
-|     fix requests of webhook rebased
-|   
-*   commit **5f3bc156a6c15c58084a05d329b6039719b90b1b**
-|\  Merge: e059e760 b519765f
-| | Author: BBBBB <BBB.BBBB@BBBB.co.jp>
-| | Date:   Wed Sep 27 16:00:11 2023 +0900
-| | 
-| |     Merge pull request #98 from skrum-inc/PIC-131-fix-fb-sheet-no-9
-| |     
-| |     Change the destination of each button
-| | 
-| * commit b519765fb30333a4728d1b3700cae75d90495264 (origin/PIC-131-fix-fb-sheet-no-9, PIC-131-fix-fb-sheet-no-9)
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:42:36 2023 +0900
+| * commit 630d6408d9650ff6d22eb698e38d5929adf9b3d6
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:11:12 2024 +0900
 | | 
 | |     fix
 | | 
-| * commit bb2cefac52e0bcef5784519ac195bbeb691c9c68
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:40:29 2023 +0900
-| | 
-| |     Change the destination of each button
-| | 
-* | commit e059e760df049f8ab52dd44d1792b2b6e8c1293c
-| | Author: CCCCC <CCC.CCCC@CCCC.co.jp>
-| | Date:   Wed Sep 27 15:35:17 2023 +0900
-:...skipping...
-* commit ad266f655613aa11e8e9b61a4659b40895c48c0d (HEAD -> fix_requests_of_webhook)
-| Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| Date:   Thu Sep 28 15:57:30 2023 +0900
-| 
-|     fix requests of webhook
-|   
-*   commit 5f3bc156a6c15c58084a05d329b6039719b90b1b
-|\  Merge: e059e760 b519765f
-| | Author: BBBBB <BBB.BBBB@BBBB.co.jp>
-| | Date:   Wed Sep 27 16:00:11 2023 +0900
-| | 
-| |     Merge pull request #98 from skrum-inc/PIC-131-fix-fb-sheet-no-9
-| |     
-| |     Change the destination of each button
-| | 
-| * commit b519765fb30333a4728d1b3700cae75d90495264 (origin/PIC-131-fix-fb-sheet-no-9, PIC-131-fix-fb-sheet-no-9)
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:42:36 2023 +0900
+| * commit e03eecf18a93666a0797abf05d4e0a2e928ad42d
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:02:51 2024 +0900
 | | 
 | |     fix
 | | 
-| * commit bb2cefac52e0bcef5784519ac195bbeb691c9c68
-| | Author: AAAAA <AAA.AAAA@AAAA.co.jp>
-| | Date:   Wed Sep 27 15:40:29 2023 +0900
+| * commit f5eba22610d376bdcc450f6e5c0297632c35604b
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 17:57:13 2024 +0900
+| | 
+| |     fix
+| | 
+```
+
+コミットメッセージが適切でないので、変更する。
+
+```
+% git rebase -i HEAD~1
+```
+
+下のような。エディターが開くので、pick->editに変更し、終了。
+```
+pick 8674350 first.html追加
+
+# Rebase 5b15e79..8674350 onto 5b15e79 (1 command)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+"~/bridge-backend/.git/rebase-merge/git-rebase-todo" 32L, 1510B
+```
+
+エディターを閉じると、次のような出力がされるので、```git commit --amend```を実行。
+
+```
+% git rebase -i HEAD~1 
+Stopped at 8674350...  first.html追加
+You can amend the commit now, with
+
+  git commit --amend 
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+```
+
+git commit --amendを実行すると、次のようなエディターが開く。
+
+```
+first.html追加
+
+second.html追加
+
+third.html追加
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Apr 6 17:15:47 2024 +0900
+#
+# interactive rebase in progress; onto 5b15e79
+# Last command done (1 command done):
+#    edit 8674350 first.html追加
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'first' on '5b15e79'.
+#
+# Changes to be committed:
+#       new file:   first.html
+#       new file:   second.html
+#       new file:   third.html
+#
+# Untracked files:
+#       .DS_Store
+#       .history/
+#       app/Http/Requests/Api/MatchingGoodRequest.php
+#       app/Http/UseCases/SendGoodMessageUseCase.php
+#       app/Http/UseCases/SendGoodUseCase.php
+#       app/Repositories/InspectMessageGood/
+#       storage/bridge-d540d-c8e276592470.json
+#       user.html
+#
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+"~/bridge-backend/.git/COMMIT_EDITMSG" 32L, 842B
+```
+
+ここで、始めてコミットメッセージを変更する。
+
+```
+first.html,second.html.third.htmlを追加
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat Apr 6 17:15:47 2024 +0900
+#
+# interactive rebase in progress; onto 5b15e79
+# Last command done (1 command done):
+#    edit 8674350 first.html追加
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'first' on '5b15e79'.
+#
+# Changes to be committed:
+#       new file:   first.html
+#       new file:   second.html
+#       new file:   third.html
+#
+# Untracked files:
+#       .DS_Store
+#       .history/
+#       app/Http/Requests/Api/MatchingGoodRequest.php
+#       app/Http/UseCases/SendGoodMessageUseCase.php
+#       app/Http/UseCases/SendGoodUseCase.php
+#       app/Repositories/InspectMessageGood/
+#       storage/bridge-d540d-c8e276592470.json
+#       user.html
+#
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~                                                                                             
+~   
+```
+
+コミットメッセージが変更されていることを確認。
+
+```
+% git log --graph
+* commit 39e958da8445025db53e4b746dab58bf467c5e63 (HEAD)
+| Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| Date:   Sat Apr 6 17:15:47 2024 +0900
+| 
+|     first.html,second.html.third.htmlを追加
+|   
+*   commit 5b15e79a045963a3865f5bbb25ebf6a68611d62a (origin/develop, origin/HEAD, develop)
+|\  Merge: e62112f 9d1d18f
+| | Author: naoharu-tazawa <naoharu.tazawa@skrum.co.jp>
+| | Date:   Thu Apr 4 17:42:57 2024 +0900
+| | 
+| |     Merge pull request #156 from skrum-inc/fix_sub_photo
+| | 
+| * commit 9d1d18fd7a78efa32473e11220f032c51610137c (origin/fix_sub_photo)
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:23:38 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit 630d6408d9650ff6d22eb698e38d5929adf9b3d6
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:11:12 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit e03eecf18a93666a0797abf05d4e0a2e928ad42d
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 18:02:51 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit f5eba22610d376bdcc450f6e5c0297632c35604b
+| | Author: Ryo Ando <ryo.ando@skrum.co.jp>
+| | Date:   Wed Apr 3 17:57:13 2024 +0900
+| | 
+| |     fix
+| | 
+| * commit f1b64097b626008184db1c9d0c8f9b71ab623446
+|/  Author: Ryo Ando <ryo.ando@skrum.co.jp>
+|   Date:   Wed Apr 3 16:59:42 2024 +0900
+|   
+:
 ```
